@@ -27,6 +27,7 @@ final class CreateCampaignController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $campaign->setUpdatedAt(new \DateTimeImmutable());
             $campaign->setCampaignStatus(CampaignStatus::DRAFT);
             $campaign->setStartDate(new \DateTimeImmutable());

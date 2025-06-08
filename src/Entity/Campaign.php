@@ -5,7 +5,7 @@ namespace App\Entity;
 use App\Enum\CampaignStatus;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Vich\UploaderBundle\Entity\File;
+use Symfony\Component\HttpFoundation\File\File;
 use App\Repository\CampaignRepository;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 

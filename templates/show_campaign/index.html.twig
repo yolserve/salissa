@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ campaign.title }}{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-12 col-md-8 col-lg-9">
+
+        <div class="card">
+            <div class="card-body">
+
+                <div class="mb-4">
+                    <img src="{{ asset('images/'~campaign.coverPictureUrl) }}" alt="{{ campaign.title }}"
+                        class="img-fluid rounded shadow">
+                </div>
+
+                <div class="mb-4">
+                    <h3 class="fw-bold">Description</h3>
+
+                    {{ campaign.description|raw }}
+                </div>
+
+                <div class="mb-4">
+                    <h3 class="fw-bold">Commentaires</h3>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ campaign.title }}</h5>
+                <p>2000000 FCFA récoltés</p>
+
+                <p>25 participations</p>
+
+                <p>Creer par {{ campaign.beneficiary.firstName }} {{ campaign.beneficiary.lastName }}</p>
+                {# <p>Le {{ campaign.createdAt|date('d/m/Y') }}</p> #}
+                {# <p>Fin de la campagne le {{ campaign.endDate|date('d/m/Y') }}</p> #}
+
+
+                <div class="d-grid"><!-- Add your grid content here -->
+                    <a href="#" class="btn btn-primary mb-2">Participer</a>
+                    <a href="#" class="btn btn-outline-primary">Partager</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

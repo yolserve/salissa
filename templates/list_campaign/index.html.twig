@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ListCampaignController!{% endblock %}
+
+{% block body %}
+
+
+<div class="row gx-3">
+    <div class="col-lg-3">
+
+        <div class="card shadow">
+            <div class="card-body">
+
+                <h3>Categories</h3>
+
+                <ul class="nav flex-column ">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Mes Cagnottes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Adresse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Parametres du compte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="col-lg-9">
+
+        <div class="card shadow">
+            <div class="card-body">
+                <h1 class="">Recherchez la cause qui vous correspond</h1>
+                <p>Vous pouvez gérer vos cagnottes, vos dons et vos informations personnelles ici.</p>
+
+                <div class="my-3 d-flex">
+                    <input class="form-control me-1" type="text" name="search" id="search">
+                    <button class="btn btn-primary" type="button">search</button>
+                </div>
+
+                <div class="row gy-3">
+                    {% for campaign in campaigns %}
+                    <div class="col-lg-4 col-md-6 col-12">
+
+                        <a href="{{ path('app_show_campaign', {'id': campaign.id}) }}" class="text-decoration-none">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+
+                                    <div class="campaign-image">
+                                        <img src="{{asset('/uploads/')}}" class="img-fluid default-image" alt="Product"
+                                            loading="lazy">
+                                    </div>
+                                    <div class="campaign-info">
+                                        <h3 class="h6 fw-bold mb-2">{{campaign.title}}</h3>
+                                        <div class="campaign-price">
+                                            <span class="h5 fw-bold">200000 FCFA récoltés </span>
+                                        </div>
+
+                                        <button class="btn btn-add-to-cart">
+                                            <i class="bi bi-bag-plus me-2"></i>29 Participations
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                    {% else %}
+                    <p>No campaigns found.</p>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    {% endblock %}

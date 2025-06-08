@@ -27,14 +27,13 @@
                     <li><a href="#" class="nav-link px-2">Reussir sa cagnotte</a></li>
                     <li><a href="#" class="nav-link px-2">Nos garanties</a></li>
                     <li><a href="#" class="nav-link px-2">Tarifs</a></li>
-                    <li><a href="#" class="nav-link px-2">About</a></li>
+                    <li><a href="#" class="nav-link px-2">Success stories</a></li>
                 </ul>
 
                 <div class="text-end">
-                    <a href="#" class="btn btn-primary me-2">Soutenir une cause</a>
-                    <a href="#" class="btn btn-primary me-2">Creer une cagnotte</a>
-                    <a href="{{path('app_login')}}" class="btn btn-outline-primary me-2">Connexion</a>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+                    <a href="{{ path('app_list_campaign') }}" class="btn btn-primary me-2">Soutenir une cause</a>
+                    <a href="{{ path('app_create_campaign') }}" class="btn btn-primary me-1">Creer une cagnotte</a>
+                    <a href="{{path('app_login')}}" class="btn btn-outline-primary">Compte</a>
                 </div>
             </div>
         </div>
