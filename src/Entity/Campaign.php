@@ -40,7 +40,14 @@ class Campaign
     private ?string $coverPictureUrl = null;
 
     #[Vich\UploadableField(mapping: 'cover_pictures', fileNameProperty: 'coverPictureUrl')]
-    private ?File $imageFile = null;
+    private ?File $coverPictureFile = null;
+
+    #[ORM\Column]
+    private ?\DateTimeImmutable $updatedAt = null;
+
+    #[ORM\ManyToOne(inversedBy: 'campaigns')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Beneficiary $beneficiary = null;
 
     public function getId(): ?int
     {
@@ -127,6 +134,46 @@ class Campaign
     public function setCoverPictureUrl(?string $coverPictureUrl): static
     {
         $this->coverPictureUrl = $coverPictureUrl;
+
+        return $this;
+    }
+
+    public function setCoverPictureFile(?File $coverPictureFile): void
+    {
+        $this->coverPictureFile = $coverPictureFile;
+
+        if (null !== $coverPictureFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getCoverPictureFile(): ?File
+    {
+        return $this->coverPictureFile;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getBeneficiary(): ?Beneficiary
+    {
+        return $this->beneficiary;
+    }
+
+    public function setBeneficiary(?Beneficiary $beneficiary): static
+    {
+        $this->beneficiary = $beneficiary;
 
         return $this;
     }
