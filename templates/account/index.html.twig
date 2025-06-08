@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountController!{% endblock %}
+
+{% block body %}
+
+<div class="row gx-5">
+    <div class="col-lg-3">
+
+
+        <div class="mb-3 ">
+            <div class="user-avatar">
+                <img src="assets/img/person/person-f-1.webp" alt="Profile" loading="lazy">
+                <span class="status-badge"><i class="bi bi-shield-check"></i></span>
+            </div>
+            <h4>Sarah Anderson</h4>
+            <div class="user-status">
+                <i class="bi bi-award"></i>
+            </div>
+        </div>
+
+        <ul class="nav flex-column nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Mes Cagnottes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Adresse</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Parametres du compte</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+
+        <hr>
+
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Centre d'aide</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Deconnexion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Supprimer mon compte</a>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <div class="col-lg-9">
+        <h1>Bienvenue dans votre compte</h1>
+        <p>Vous pouvez gérer vos cagnottes, vos dons et vos informations personnelles ici.</p>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h2>Mes Cagnottes</h2>
+                <p>Aucune cagnotte créée pour le moment.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h2>Mes Dons</h2>
+                <p>Aucun don effectué pour le moment.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h2>Mes Informations</h2>
+                <p>Vos informations personnelles seront affichées ici.</p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

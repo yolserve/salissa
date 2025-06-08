@@ -1,0 +1,37 @@
+<div{{ attributes }}>
+
+    {{ form_errors(form) }}
+
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-12">{{ form_row(form.organisationType) }}</div>
+
+        {% if (form.lastname is defined) and (form.firstname is defined) %}
+        <div class="col-6">{{ form_row(form.lastname) }}</div>
+        <div class="col-6">{{ form_row(form.firstname) }}</div>
+
+        {% else %}
+        <div class="col-12">{{ form_row(form.socialReason) }}</div>
+        {% endif %}
+
+        <div class="col-6">{{ form_row(form.phoneNumber) }}</div>
+        <div class="col-6">{{ form_row(form.userAccount.email) }}</div>
+
+        <div class="col-12">{{ form_row(form.userAccount.plainPassword) }}</div>
+
+
+        <div class="col-12">{{ form_row(form.userAccount.agreeTerms) }}</div>
+
+        <div class="col-12 d-flex justify-content-end mb-3">
+            <a href="{{ path('app_login') }}" class="btn btn-link text-decoration-none">J'ai déja un compte, me
+                connecter</a>
+        </div>
+
+
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-primary" type="submit">
+                Creer le compte
+            </button>
+        </div>
+        {{ form_end(form) }}
+    </div>
