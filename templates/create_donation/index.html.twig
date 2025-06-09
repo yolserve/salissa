@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CreateDonationController!{% endblock %}
+{% block title %}Participation à la cagnotte {{campaign.title}} {% endblock %}
 
 {% block body %}
 
-
-
+<div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-6 col-12">
+        {% include "create_donation/_form.html.twig" %}
+    </div>
+</div>
 
 
 {% endblock %}

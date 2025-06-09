@@ -30,6 +30,13 @@ class Donation
     #[ORM\JoinColumn(nullable: false)]
     private ?Payment $payment = null;
 
+    #[ORM\Column]
+    private ?bool $anonymous = null;
+
+    #[ORM\ManyToOne(inversedBy: 'donations')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Campaign $campaign = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -91,6 +98,30 @@ class Donation
     public function setPayment(Payment $payment): static
     {
         $this->payment = $payment;
+
+        return $this;
+    }
+
+    public function isAnonymous(): ?bool
+    {
+        return $this->anonymous;
+    }
+
+    public function setAnonymous(bool $anonymous): static
+    {
+        $this->anonymous = $anonymous;
+
+        return $this;
+    }
+
+    public function getCampaign(): ?Campaign
+    {
+        return $this->campaign;
+    }
+
+    public function setCampaign(?Campaign $campaign): static
+    {
+        $this->campaign = $campaign;
 
         return $this;
     }
